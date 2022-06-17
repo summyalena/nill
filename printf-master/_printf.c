@@ -1,45 +1,48 @@
-#include "holberton.h"
+#include "main.h"
 /**
- * _printf - is a function that selects the correct function to print.
- * @format: identifier to look for.
- * Return: the length of the string.
+ * _printf - replication of some of the features from C function printf()
+ * @format: character string of directives, flags, modifiers, & specifiers
+ * Description: This function uses the variable arguments functionality and is
+ * supposed to resemble printf().  Please review the README for more
+ * information on how it works.
+ * Return: number of characters printed
  */
-int _printf(const char * const format, ...)
+int _printf(const char *format, ...)
 {
-	convert_match m[] = {
-		{"%s", printf_string}, {"%c", printf_char},
-		{"%%", printf_37},
-		{"%i", printf_int}, {"%d", printf_dec}, {"%r", printf_srev},
-		{"%R", printf_rot13}, {"%b", printf_bin}, {"%u", printf_unsigned},
-		{"%o", printf_oct}, {"%x", printf_hex}, {"%X", printf_HEX},
-		{"%S", printf_exclusive_string}, {"%p", printf_pointer}
-	};
+	va_list args_list;
+	inventory_t *inv;
+	void (*temp_func)(inventory_t *);
 
-	va_list args;
-	int i = 0, j, len = 0;
-
-	va_start(args, format);
-	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+	if (!format)
 		return (-1);
+	va_start(args_list, format);
+	inv = build_inventory(&args_list, format);
 
-Here:
-	while (format[i] != '\0')
+	while (inv && format[inv->i] && !inv->error)
 	{
-		j = 13;
-		while (j >= 0)
+		inv->c0 = format[inv->i];
+		if (inv->c0 != '%')
+			write_buffer(inv);
+		else
 		{
-			if (m[j].id[0] == format[i] && m[j].id[1] == format[i + 1])
+			parse_specifiers(inv);
+			temp_func = match_specifier(inv);
+			if (temp_func)
+				temp_func(inv);
+			else if (inv->c1)
 			{
-				len += m[j].f(args);
-				i = i + 2;
-				goto Here;
+				if (inv->flag)
+					inv->flag = 0;
+				write_buffer(inv);
 			}
-			j--;
+			else
+			{
+				if (inv->space)
+					inv->buffer[--(inv->buf_index)] = '\0';
+				inv->error = 1;
+			}
 		}
-		_putchar(format[i]);
-		len++;
-		i++;
+		inv->i++;
 	}
-	va_end(args);
-	return (len);
+	return (end_func(inv));
 }
