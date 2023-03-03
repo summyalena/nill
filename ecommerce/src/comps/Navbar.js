@@ -21,7 +21,14 @@ function Navbar() {
           </div>
           </div>
 
-        <div className="flex-1 flex justify-end gap-x-4">
+          <div className="flex-1 flex justify-end gap-x-6 pt-1 font-serif">
+           <a href="register" className="text-2sm hover:font-bold hover:text-slate-700 cursor-pointer">Shop All</a>
+           <a href="Login" className="text-2sm cursor-pointer">New</a>
+           <a href="register" className="text-2sm cursor-pointer">Girls</a>
+           <a href="register" className="text-2sm cursor-pointer">Boys</a>
+        </div>
+
+        <div className="flex-1 flex justify-end gap-x-4 pt-1 font-serif">
            <a href="register" className="text-2sm cursor-pointer">Register</a>
            <a href="Login" className="text-2sm cursor-pointer">Login</a>
            <div className=""><Badge color="primary" badgeContent={4}><ShoppingCartOutlined/></Badge></div>
