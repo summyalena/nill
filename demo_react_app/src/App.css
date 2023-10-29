@@ -1,0 +1,6 @@
+.App {
+  background-color: purple;
+  display: flex;
+  flex-direction: column;
+
+}
