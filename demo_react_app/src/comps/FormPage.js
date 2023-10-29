@@ -32,7 +32,7 @@ function FormPage() {
                 name="email"
                 className='input'
                 onChange={(e) =>
-                  setFormValues(...formValues, { email: e.target.value })
+                  setFormValues( { email: e.target.value })
                 }
               />
               <ErrorMessage
@@ -42,13 +42,13 @@ function FormPage() {
               />
             </div>
 
-            <div className={styles.fieldInputs}>
+            <div className='fieldInputs'>
               <Field
                 placeholder="Enter your phone number"
                 name="name"
                 className='input'
                 onChange={(e) =>
-                  setFormValues(...formValues, { email: e.target.value })
+                  setFormValues( { PhoneNumber: e.target.value })
                 }
               />
               <ErrorMessage
