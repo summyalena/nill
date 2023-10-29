@@ -15,7 +15,14 @@ function App() {
 
         <div>
           <span/>
-          <span>About Split</span>
+          <span/>
+          <span/>
+          <div>
+            <p>About Split
+              </p>
+              <p>Split is good and ready to deliver</p>
+              <p>Split is good to fall in love with</p>
+            </div>
         </div>
         <FormPage />
       </div>

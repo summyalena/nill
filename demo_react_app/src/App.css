@@ -11,6 +11,7 @@
     rgb(83, 80, 236) 35%,
     rgb(119, 0, 255) 100%
   );
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   color: white;
   padding: 1rem;
 }
@@ -30,14 +31,38 @@
 .splitcontainer > div:nth-child(2){
   position: relative;
   top: 50%;
-  left: 0;
+  left: 5%;
   height: 400px;
 }
 
 .splitcontainer > div:nth-child(2) span {
   border-left: 0.2rem solid white;
-  height: 100px;
+  height: 160px;
   position: absolute;
+}
+
+.splitcontainer > div:nth-child(2) span:nth-child(2) {
+  width: 0.5rem;
+  height: 0.5rem;
+  border: 0.2rem solid white;
+  padding: 1rem;
+  top: 40%;
+  margin-left: -1.3rem;
+  position: absolute;
+}
+
+.splitcontainer > div:nth-child(2) span:nth-child(3) {
+  border-left: 0.2rem solid white;
+  height: 160px;
+  top: 51.6%;
+}
+
+
+.splitcontainer > div:nth-child(2) > div {
+ position: absolute;
+ top: 20%;
+ left: 5%;
+ border-left: none;
 }
 
 .buttonContainer {
