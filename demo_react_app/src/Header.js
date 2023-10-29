@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import './App.css';
 import splitlogo from './images/splitlogo.png';
 
 function Header() {
