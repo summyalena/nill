@@ -14,6 +14,7 @@ function App() {
         </div>
 
         <div>
+          <span/>
           <span>About Split</span>
         </div>
         <FormPage />

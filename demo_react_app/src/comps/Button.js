@@ -4,7 +4,7 @@ import styles from "../App.css"
 
 function Button({children, className}) {
   return (
-    <div className={`flex ${className} ${styles.buttonContainer}`}>
+    <div className={`flex ${className} buttonContainer`}>
       {children}
     </div>
   )

@@ -57,7 +57,7 @@ function FormPage() {
                 name="email"
               />
             </div>
-            <Button className='formButton'>Join Split</Button>
+            <Button>Join Split</Button>
           </Form>
           
         )}
